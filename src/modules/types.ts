@@ -1,7 +1,8 @@
-export type TDimensions = {
-  width: number;
-  height: number;
-};
+import type { RefObject, Dispatch, SetStateAction } from 'react';
+
+export type TSetState<T> = Dispatch<SetStateAction<T>>;
+
+export type TWrapper = RefObject<HTMLDivElement>;
 
 export type TDataItem = {
   value: number;
