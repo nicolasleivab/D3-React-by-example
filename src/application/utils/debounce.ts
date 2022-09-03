@@ -1,5 +1,3 @@
-import { TSetState } from '../types';
-
 export function debounce(setState: any, ms: number) {
   let timer: any;
 

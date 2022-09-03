@@ -1,25 +1,24 @@
-import { useRef } from 'react';
 import Line from '../atoms/Line';
 import useXScale from '../hooks/useXScale';
 import useYScale from '../hooks/useYScale';
-import { DATA, HEIGHT } from '../../constants';
 import { Svg } from '../../../layout';
-import type { TWrapper } from '../../types';
+import type { TDataItem, TDimensions } from '../../types';
 
-function LineChart() {
-  const wrapperRef = useRef(null) as TWrapper;
+type TLineChart = {
+  dimensions: TDimensions;
+  data: TDataItem[];
+};
 
-  const xScale = useXScale({ data: DATA, wrapper: wrapperRef });
-  const yScale = useYScale({ data: DATA, wrapper: wrapperRef });
+function LineChart({ dimensions, data }: TLineChart) {
+  const xScale = useXScale({ data, width: dimensions.width });
+  const yScale = useYScale({ data, height: dimensions.height });
 
   return (
-    <div ref={wrapperRef} style={{ height: HEIGHT }}>
-      <Svg>
-        <g>
-          <Line data={DATA} xScale={xScale} yScale={yScale} />
-        </g>
-      </Svg>
-    </div>
+    <Svg>
+      <g>
+        <Line data={data} xScale={xScale} yScale={yScale} />
+      </g>
+    </Svg>
   );
 }
 

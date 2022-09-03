@@ -4,6 +4,11 @@ export type TSetState<T> = Dispatch<SetStateAction<T>>;
 
 export type TWrapper = RefObject<HTMLDivElement>;
 
+export type TDimensions = {
+  width: number;
+  height: number;
+};
+
 export type TDataItem = {
   value: number;
   date: Date;
