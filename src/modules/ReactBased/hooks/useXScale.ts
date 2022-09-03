@@ -1,5 +1,5 @@
 import { scaleTime } from 'd3-scale';
-import { TDataItem, TimeScale } from '../../types';
+import { TDataItem, TimeScale, TDateTuple, TNumberTuple } from '../../types';
 
 type TUseXScale = {
   data: TDataItem[];
@@ -11,10 +11,13 @@ function useXScale({ data, width }: TUseXScale) {
   const firstDate = sortedData[0].date;
   const lastDate = sortedData[sortedData.length - 1].date;
 
+  const domain: TDateTuple = [firstDate, lastDate];
+  const range: TNumberTuple = [0, width];
+
   const xScale: TimeScale = {
-    domain: [firstDate, lastDate],
-    range: [0, width],
-    scale: scaleTime(),
+    domain,
+    range,
+    scale: scaleTime().domain(domain).range(range),
   };
 
   return xScale;

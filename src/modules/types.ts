@@ -8,14 +8,18 @@ export type TDataItem = {
   date: Date;
 };
 
+export type TNumberTuple = [number, number];
+
+export type TDateTuple = [Date, Date];
+
 export type LinearScale = {
-  range: [number, number];
-  domain: [number, number];
+  range: TNumberTuple;
+  domain: TNumberTuple;
   scale: (arg0: number) => number;
 };
 
 export type TimeScale = {
-  range: [number, number];
-  domain: [Date, Date];
+  range: TNumberTuple;
+  domain: TDateTuple;
   scale: (arg0: Date) => number;
 };

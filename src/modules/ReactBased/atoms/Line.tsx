@@ -10,11 +10,12 @@ type TLine = {
 function Line({ data, xScale, yScale }: TLine) {
   const linePathGenerator = line<TDataItem>()
     .x((d: TDataItem) => xScale.scale(d.date))
-    .y((d: TDataItem) => yScale.scale(d.value));
+    .y((d: TDataItem) => yScale.scale(d.value))
+    .defined((d: TDataItem) => d.value !== null);
 
   const linePath = linePathGenerator(data);
 
-  return <path d={linePath!} stroke="#000" strokeWidth="3" />;
+  return <path d={linePath!} stroke="#000" strokeWidth="3" fill="none" />;
 }
 
 export default Line;

@@ -1,5 +1,5 @@
 import { scaleLinear } from 'd3-scale';
-import { TDataItem, LinearScale } from '../../types';
+import { TDataItem, LinearScale, TNumberTuple } from '../../types';
 
 type TUseYScale = {
   data: TDataItem[];
@@ -11,10 +11,13 @@ function useYScale({ data, height }: TUseYScale) {
   const firstValue = sortedData[0].value;
   const lastValue = sortedData[sortedData.length - 1].value;
 
+  const domain: TNumberTuple = [firstValue, lastValue];
+  const range: TNumberTuple = [0, height];
+
   const xScale: LinearScale = {
-    domain: [firstValue, lastValue],
-    range: [0, height],
-    scale: scaleLinear(),
+    domain,
+    range,
+    scale: scaleLinear().domain(domain).range(range),
   };
 
   return xScale;
