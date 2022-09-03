@@ -14,7 +14,7 @@ function useXScale({ data, width }: TUseXScale) {
   const xScale: TimeScale = {
     domain: [firstDate, lastDate],
     range: [0, width],
-    scale: scaleTime(data),
+    scale: scaleTime(),
   };
 
   return xScale;
