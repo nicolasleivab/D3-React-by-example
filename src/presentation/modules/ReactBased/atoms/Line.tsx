@@ -15,7 +15,7 @@ function Line({ data, xScale, yScale }: TLine) {
 
   const linePath = linePathGenerator(data);
 
-  return <path d={linePath!} stroke="#000" strokeWidth="3" fill="none" />;
+  return <path d={linePath!} stroke="#000" strokeWidth="2" fill="none" />;
 }
 
 export default Line;

@@ -12,7 +12,7 @@ function useYScale({ data, height }: TUseYScale) {
   const lastValue = sortedData[sortedData.length - 1].value;
 
   const domain: TNumberTuple = [firstValue, lastValue];
-  const range: TNumberTuple = [0, height];
+  const range: TNumberTuple = [height, 0];
 
   const xScale: LinearScale = {
     domain,

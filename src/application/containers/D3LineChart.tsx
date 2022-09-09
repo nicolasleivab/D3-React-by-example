@@ -1,4 +1,4 @@
-import LineChart from '../../presentation/modules/ReactBased/LineChart/LineChart';
+import LineChart from '../../presentation/modules/D3Based/LineChart/LineChart';
 import { Card } from '../../presentation/layout';
 import useApi from '../api/useApi';
 import type { TDataItem } from '../../presentation/modules/types';

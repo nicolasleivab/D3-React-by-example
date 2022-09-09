@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TWrapper, TDimensions } from '../../modules/types';
+import { TWrapper, TDimensions } from '../types';
 import { debounce } from '../utils/debounce';
 
 export default function useWrapperDimensions({
