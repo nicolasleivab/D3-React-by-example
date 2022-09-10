@@ -27,6 +27,7 @@ function LineChart({ data }: TLineChart) {
     if (pathRef?.current) {
       const length = pathRef?.current?.getTotalLength();
       setPathLength(length);
+      console.log(pathLength);
     }
     setTimeout(() => setToggle(true), 350);
   }, [width]);
@@ -37,25 +38,13 @@ function LineChart({ data }: TLineChart) {
         <g>
           <Line
             ref={pathRef}
-            isVisible={false}
             data={data}
             xScale={xScale}
             yScale={yScale}
-            length={0}
+            length={pathLength}
             toggle={toggle}
           />
         </g>
-        {Boolean(pathLength) ? (
-          <g>
-            <Line
-              data={data}
-              xScale={xScale}
-              yScale={yScale}
-              length={pathLength}
-              toggle={toggle}
-            />
-          </g>
-        ) : null}
         <g>
           <VerticalNumericalAxis height={height} />
         </g>
