@@ -73,6 +73,25 @@ export default function LineChart({ data }: TLineChart) {
         .x((d: any): any => xScale(d.date))
         .y((d: any): any => yScale(d.value));
 
+      svgEl
+        .append('g')
+        .attr(
+          'transform',
+          `translate(${margin.left}, ${height - margin.bottom})`,
+        )
+        .append('line')
+        .attr('x0', 0)
+        .attr('x1', width)
+        .attr('stroke', 'black');
+
+      svgEl
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${0})`)
+        .append('line')
+        .attr('y0', 0)
+        .attr('y1', height - margin.bottom)
+        .attr('stroke', 'black');
+
       svg
         .selectAll('g')
         .data([data])
@@ -94,6 +113,7 @@ export default function LineChart({ data }: TLineChart) {
             .attr('stroke-dasharray', `${length},${length}`)
             .attr('stroke-dashoffset', length)
             .transition()
+            .delay(100)
             .duration(750)
             .ease(d3.easeLinear)
             .attr('stroke-dashoffset', 0);

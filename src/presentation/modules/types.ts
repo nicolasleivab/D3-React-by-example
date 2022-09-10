@@ -4,6 +4,8 @@ export type TSetState<T> = Dispatch<SetStateAction<T>>;
 
 export type TWrapper = RefObject<HTMLDivElement>;
 
+export type TPathRef = RefObject<SVGGeometryElement>;
+
 export type TDimensions = {
   width: number;
   height: number;

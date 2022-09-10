@@ -7,6 +7,7 @@ import ReactLineChart from './containers/ReactLineChart';
 import D3LineChart from './containers/D3LineChart';
 import Header from '../presentation/components/Header';
 import Title from '../presentation/components/Title';
+import ChartTitle from '../presentation/components/ChartTitle';
 
 const GlobalStyle = createGlobalStyle`
   ${baseCSS}
@@ -18,14 +19,16 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Flex flexDirection="column">
-          <Block>
+          <Block margin="l">
             <Header />
           </Block>
-          <Title>React rendered Line Chart</Title>
+          <ChartTitle imgPath="/react.ico" />
           <Block width="50%">
             <ReactLineChart />
           </Block>
-          <Title>D3 rendered Line Chart</Title>
+          <Flex>
+            <ChartTitle imgPath="/d3.ico" />
+          </Flex>
           <Block width="50%">
             <D3LineChart />
           </Block>
